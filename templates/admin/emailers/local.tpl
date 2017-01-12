@@ -1,9 +1,9 @@
-<h1><i class="fa fa-envelope-o"></i> Emailer SMTP</h1>
+<h1><i class="fa fa-envelope-o"></i> Emailer SMTP Complete</h1>
 
 <div class="row">
 	<div class="col-lg-12">
 		<blockquote>
-			Plugin for NodeBB allowing you to send e-mail via SMTP.
+			Plugin for NodeBB allowing you to send e-mail via SMTP with or without TLS.
 		</blockquote>
 	</div>
 </div>
@@ -42,6 +42,14 @@
 					<label>
 						<input type="checkbox" id="emailer:local:secure" name="emailer:local:secure"/>
 						 Enable secure connection
+					</label>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label>
+						<input type="checkbox" id="emailer:local:tls" name="emailer:local:tls"/>
+						 Enable TLS connection
 					</label>
 				</div>
 			</div>

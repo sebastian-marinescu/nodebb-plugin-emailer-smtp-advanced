@@ -32,6 +32,7 @@ Emailer.send = function(data, callback) {
         host: settings['emailer:local:host'],
         port: settings['emailer:local:port'],
         secure: settings['emailer:local:secure'],
+        requireTLS: settings['emailer:local:tls'],
         auth: {
             user: settings['emailer:local:username'],
             pass: settings['emailer:local:password'],
@@ -61,7 +62,7 @@ Emailer.admin = {
         custom_header.plugins.push({
             "route": '/emailers/local',
             "icon": 'fa-envelope-o',
-            "name": 'Emailer SMTP'
+            "name": 'Emailer SMTP Complete'
         });
 
         callback(null, custom_header);
