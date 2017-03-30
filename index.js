@@ -39,7 +39,10 @@ Emailer.send = function(data, callback) {
         },
     };
     var mailOptions = {
-        from: data.from,
+        from: {
+            name: data.from_name,
+            adddress: data.from
+        },
         to: data.to,
         html: data.html,
         text: data.plaintext,
