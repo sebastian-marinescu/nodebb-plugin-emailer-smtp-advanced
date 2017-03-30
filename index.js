@@ -43,7 +43,10 @@ Emailer.send = function(data, callback) {
             name: data.from_name,
             adddress: data.from
         },
-        to: data.to,
+        to: {
+            name: data._raw.username,
+            address: data.to
+        },
         html: data.html,
         text: data.plaintext,
         subject: data.subject
