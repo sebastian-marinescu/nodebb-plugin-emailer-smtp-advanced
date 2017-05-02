@@ -39,8 +39,14 @@ Emailer.send = function(data, callback) {
         },
     };
     var mailOptions = {
-        from: data.from,
-        to: data.to,
+        from: {
+            name: data.from_name,
+            adddress: data.from
+        },
+        to: {
+            name: data._raw.username,
+            address: data.to
+        },
         html: data.html,
         text: data.plaintext,
         subject: data.subject
