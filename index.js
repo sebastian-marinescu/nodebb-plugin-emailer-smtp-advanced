@@ -2,13 +2,12 @@
 
 var winston = module.parent.require('winston'),
     Meta = module.parent.require('./meta'),
-    nodemailer = require('nodemailer'),
-    smtpTransport = require('nodemailer-smtp-transport'),
+    nodemailer = module.parent.require('nodemailer'),
     Emailer = {};
 
 var settings = {};
 
-Emailer.init = function(data, callback) {
+Emailer.init = function (data, callback) {
     function renderAdminPage(req, res) {
         res.render('admin/emailers/local', {});
     }
@@ -16,7 +15,7 @@ Emailer.init = function(data, callback) {
     data.router.get('/admin/emailers/local', data.middleware.admin.buildHeader, renderAdminPage);
     data.router.get('/api/admin/emailers/local', renderAdminPage);
 
-    Meta.settings.get('emailer-local', function(err, _settings) {
+    Meta.settings.get('emailer-local', function (err, _settings) {
         if (err) {
             return winston.error(err);
         }
@@ -26,35 +25,40 @@ Emailer.init = function(data, callback) {
     callback();
 };
 
-Emailer.send = function(data, callback) {
+Emailer.send = function (data, callback) {
 
     var smtpConfig = {
-        host: settings['emailer:local:host'],
-        port: settings['emailer:local:port'],
-        secure: settings['emailer:local:secure'],
-        requireTLS: settings['emailer:local:tls'],
-        auth: {
-            user: settings['emailer:local:username'],
-            pass: settings['emailer:local:password'],
+            host: settings['emailer:local:host'],
+            port: settings['emailer:local:port'],
+            secure: settings['emailer:local:secure'],
+            requireTLS: settings['emailer:local:tls'],
+            auth: {
+                user: settings['emailer:local:username'],
+                pass: settings['emailer:local:password']
+            },
+            tls: {
+                // rejectUnauthorized: settings['emailer:local:tls:unauthorized']
+                rejectUnauthorized: false
+            }
         },
-    };
-    var mailOptions = {
-        from: {
-            name: data.from_name,
-            adddress: data.from
-        },
-        to: {
-            name: data._raw.username,
-            address: data.to
-        },
-        html: data.html,
-        text: data.plaintext,
-        subject: data.subject
-    };
+        mailOptions = {
+            from: {
+                name: data.from_name,
+                adddress: data.from
+            },
+            to: {
+                name: data._raw.username,
+                address: data.to
+            },
+            html: data.html,
+            text: data.plaintext,
+            subject: data.subject
+        };
+
     var transporter = nodemailer.createTransport(smtpConfig);
 
-    transporter.sendMail(mailOptions, function(err) {
-        if ( !err ) {
+    transporter.sendMail(mailOptions, function (err) {
+        if (!err) {
             winston.info('[emailer.smtp] Sent `' + data.template + '` email to uid ' + data.uid);
         } else {
             winston.warn('[emailer.smtp] Unable to send `' + data.template + '` email to uid ' + data.uid + '!');
@@ -64,11 +68,11 @@ Emailer.send = function(data, callback) {
 };
 
 Emailer.admin = {
-    menu: function(custom_header, callback) {
+    menu: function (custom_header, callback) {
         custom_header.plugins.push({
             "route": '/emailers/local',
             "icon": 'fa-envelope-o',
-            "name": 'Emailer SMTP Complete'
+            "name": 'Emailer SMTP Advanced'
         });
 
         callback(null, custom_header);

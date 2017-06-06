@@ -1,7 +1,7 @@
 {
-    "id": "nodebb-plugin-emailer-smtp-complete",
-    "url": "https://github.com/DoubleDash/nodebb-plugin-emailer-smtp-complete",
-    "name": "Emailer SMTP Complete",
+    "id": "nodebb-plugin-emailer-smtp-advanced",
+    "url": "https://github.com/sebastian-marinescu/nodebb-plugin-emailer-smtp-advanced",
+    "name": "Emailer SMTP Advanced",
     "description": "Plugin for NodeBB allowing you to send e-mail via SMTP with TLS support.",
     "library": "./index.js",
     "templates": "./templates",
@@ -10,5 +10,5 @@
         { "hook": "filter:admin.header.build", "method": "admin.menu" },
         { "hook": "static:app.load", "method": "init"}
     ],
-    "compatibility": "~1.1.2"
+    "compatibility": "~1.4.6"
 }

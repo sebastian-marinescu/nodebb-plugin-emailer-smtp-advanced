@@ -1,4 +1,4 @@
-<h1><i class="fa fa-envelope-o"></i> Emailer SMTP Complete</h1>
+<h1><i class="fa fa-envelope-o"></i> Emailer SMTP Advanced</h1>
 
 <div class="row">
 	<div class="col-lg-12">
@@ -49,7 +49,13 @@
 				<div class="form-group">
 					<label>
 						<input type="checkbox" id="emailer:local:tls" name="emailer:local:tls"/>
-						 Enable TLS connection
+						Enable TLS connection
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						<input type="checkbox" id="emailer:local:tls:unauthorized" name="emailer:local:tls:unauthorized" value="false" />
+						Reject unauthorized certificate
 					</label>
 				</div>
 			</div>
@@ -69,7 +75,6 @@
 					type: 'info',
 					title: 'Settings Changed',
 					message: 'Please reload your NodeBB to apply these changes',
-					timeout: 5000,
 					clickfn: function() {
 						socket.emit('admin.reload');
 					}

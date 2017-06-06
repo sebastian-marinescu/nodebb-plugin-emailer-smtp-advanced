@@ -1,6 +1,6 @@
 {
-  "name": "nodebb-plugin-emailer-smtp-complete",
-  "version": "1.0.1",
+  "name": "nodebb-plugin-emailer-smtp-advanced",
+  "version": "1.0.0",
   "description": "Plugin for NodeBB allowing you to send e-mail via SMTP with TLS compliance.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DoubleDash/nodebb-plugin-emailer-smtp-complete.git"
+    "url": "git+https://github.com/sebastian-marinescu/nodebb-plugin-emailer-smtp-advanced.git"
   },
   "keywords": [
     "nodebb",
@@ -20,14 +20,14 @@
   "authors": ["Danor <danor@fastmail.com>", "Mehdi Aissani <contact@mehdiaissani.com> (https://mehdiaissani.com)"],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DoubleDash/nodebb-plugin-emailer-smtp-complete/issues"
+    "url": "https://github.com/sebastian-marinescu/nodebb-plugin-emailer-smtp-advanced/issues"
   },
-  "homepage": "https://github.com/DoubleDash/nodebb-plugin-emailer-smtp-complete/blob/master/README.md",
+  "homepage": "https://github.com/sebastian-marinescu/nodebb-plugin-emailer-smtp-advanced/blob/master/README.md",
   "dependencies": {
-    "nodemailer": "~2.7.0",
+    "nodemailer": "~4.0.1",
     "path": "~0.12.7"
   },
   "nbbpm": {
-    "compatibility": "^1.1.2"
+    "compatibility": "^1.4.6"
   }
 }
