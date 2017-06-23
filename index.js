@@ -28,6 +28,7 @@ Emailer.init = function (data, callback) {
 Emailer.send = function (data, callback) {
 
     var smtpConfig = {
+            name: data.from.substring(data.from.indexOf('@') + 1),
             host: settings['emailer:local:host'],
             port: settings['emailer:local:port'],
             secure: settings['emailer:local:secure'],
