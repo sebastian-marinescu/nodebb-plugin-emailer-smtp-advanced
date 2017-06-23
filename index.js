@@ -45,7 +45,7 @@ Emailer.send = function (data, callback) {
         mailOptions = {
             from: {
                 name: data.from_name,
-                adddress: data.from
+                address: data.from
             },
             to: {
                 name: data._raw.username,
