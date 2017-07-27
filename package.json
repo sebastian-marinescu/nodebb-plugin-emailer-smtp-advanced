@@ -17,7 +17,10 @@
     "mail",
     "smtp"
   ],
-  "authors": ["Danor <danor@fastmail.com>", "Mehdi Aissani <contact@mehdiaissani.com> (https://mehdiaissani.com)"],
+  "authors": [
+    "Danor <danor@fastmail.com>",
+    "Mehdi Aissani <contact@mehdiaissani.com> (https://mehdiaissani.com)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sebastian-marinescu/nodebb-plugin-emailer-smtp-advanced/issues"
